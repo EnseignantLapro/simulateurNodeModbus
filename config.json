@@ -1,0 +1,17 @@
+[
+    { "name": "de COV","unit": "%", "min": 45, "max": 70, "address": 0 },
+    { "name": "débimètre","unit": "m3/h", "min": 10, "max": 28, "address": 1 },
+    { "name": "débimètre","unit": "m3/h", "min": 10, "max": 28, "address": 2 },
+    { "name": "débimètre","unit": "m3/h", "min": 10, "max": 28, "address": 3 },
+    { "name": "débimètre","unit": "m3/h", "min": 10, "max": 28, "address": 4 },
+    { "name": "de température","unit": "°C", "min": -15, "max": 44, "address": 5 },
+    { "name": "d'humidité","unit": "%", "min": 45, "max": 71, "address": 6 },
+    { "name": "de température","unit": "°C", "min": -15, "max": 44, "address": 7 },
+    { "name": "d'humidité","unit": "%", "min": 45, "max": 71, "address": 8 },
+    { "name": "de température","unit": "°C", "min": -15, "max": 44, "address": 9},
+    { "name": "d'humidité","unit": "%", "min": 45, "max": 71, "address": 10 },
+    { "name": "de température","unit": "°C", "min": -15, "max": 44, "address": 11 },
+    { "name": "d'humidité","unit": "%", "min": 45, "max": 71, "address": 12 },
+    { "name": "d'ambiance","unit": "°C", "min": -2, "max": 32, "address": 13 },
+    { "name": "de CO2","unit": "ppm", "min": 150, "max": 300, "address": 14 }
+]
