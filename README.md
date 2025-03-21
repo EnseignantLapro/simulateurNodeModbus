@@ -1,54 +1,86 @@
-🔹 Lire les valeurs d'un capteur via Modbus TCP (Node.js)
 
-📜 Logs du Serveur Modbus (Node.js)
 
-⚠️ Si les logs du serveur ne s’actualisent pas toutes les 5 secondes, le serveur Modbus simulé n’est probablement pas démarré.
+# 🔹 Lire les valeurs d'un capteur via Modbus TCP (Node.js)
+
+## 📜 Logs du Serveur Modbus (Node.js)
+
+⚠️ Si les logs du serveur ne s’actualisent pas toutes les 5 secondes, le serveur Modbus simulé n’est probablement pas démarré.  
 Demander à l’administrateur ou au professeur d’exécuter la commande suivante :
 
+```bash
 root@vm:~# mpm2 restart server.js
-à exécuter dans le dossier /opt/simulateurNodeModbus de la VM.
+```
 
-✅ Prérequis
+à exécuter dans le dossier `/opt/simulateurNodeModbus` de la VM.
 
-Disposer de Node.js installé sur votre environnement de développement.
-Installer la bibliothèque jsmodbus via npm :
+---
+
+## ✅ Prérequis
+
+- Disposer de Node.js installé sur votre environnement de développement.
+- Installer la bibliothèque `jsmodbus` via npm :
+
+```bash
 npm install jsmodbus
-Visionner la vidéo suivante afin de comprendre la structure des trames Modbus TCP (positions et valeurs des octets) :
-📺 Le Protocole Modbus TCP - Comprendre ses trames (YouTube)
-🔎 Test rapide avec Hercules.exe
+```
 
-Hercules Setup Utility est un utilitaire Windows gratuit permettant de tester des communications TCP, UDP et série.
+- Visionner la vidéo suivante afin de comprendre la structure des trames Modbus TCP (positions et valeurs des octets) :  
+📺 [Le Protocole Modbus TCP - Comprendre ses trames (YouTube)](https://www.youtube.com/embed/uMKwotzBzz8)
 
-Étapes de test :
-Télécharger et exécuter hercules.exe sur un poste Windows connecté au même réseau que la VM simulant le serveur Modbus.
-Onglet TCP Client :
-Adresse IP : celle de la VM.
-Port : 5020 (ou celui défini dans le simulateur).
-Cliquer sur Connect.
-Une fois la connexion établie, il est possible d’envoyer des trames Modbus manuellement.
-Exemple de configuration disponible dans le fichier image configHercule.png.
+---
 
-🔎 Test rapide avec modpoll
+## 🔎 Test rapide avec Hercules.exe
 
-modpoll est un outil en ligne de commande pour systèmes Linux permettant de réaliser des requêtes Modbus TCP.
+[Hercules Setup Utility](https://www.hw-group.com/software/hercules-setup-utility) est un utilitaire Windows gratuit permettant de tester des communications TCP, UDP et série.
 
-Installation et utilisation :
+### Étapes de test :
+
+1. Télécharger et exécuter hercules.exe sur un poste Windows connecté au même réseau que la VM simulant le serveur Modbus.
+2. Onglet TCP Client :
+   - Adresse IP : celle de la VM.
+   - Port : 5020 (ou celui défini dans le simulateur).
+   - Cliquer sur Connect.
+3. Une fois la connexion établie, il est possible d’envoyer des trames Modbus manuellement.
+
+Exemple de configuration disponible dans le fichier image `configHercule.png`.
+
+---
+
+## 🔎 Test rapide avec modpoll
+
+[modpoll](https://www.modbusdriver.com/modpoll.html) est un outil en ligne de commande pour systèmes Linux permettant de réaliser des requêtes Modbus TCP.
+
+### Installation et utilisation :
+
+```bash
 cd modpoll/
 cp x86_64-linux-gnu/modpoll /usr/local/bin/
 chmod +x /usr/local/bin/modpoll
-Commande de test :
+```
+
+### Commande de test :
+
+```bash
 modpoll -m tcp -a 1 -r 1 -c 1 -p 502 IP_DU_SERVEUR
--m tcp : mode TCP
--a 1 : adresse esclave
--r 1 : registre de départ
--c 1 : nombre de registres
--p 502 : port Modbus TCP
-🔎 Test rapide avec Node.js
+```
+
+- `-m tcp` : mode TCP  
+- `-a 1` : adresse esclave  
+- `-r 1` : registre de départ  
+- `-c 1` : nombre de registres  
+- `-p 502` : port Modbus TCP  
+
+---
+
+## 🔎 Test rapide avec Node.js
 
 Le client Node.js doit être exécuté directement sur la VM locale.
 
-💻 Exemple de code client Node.js (lecture de registre Modbus TCP)
+---
 
+## 💻 Exemple de code client Node.js (lecture de registre Modbus TCP)
+
+```javascript
 const Modbus = require('jsmodbus');
 const net = require('net');
 
@@ -76,17 +108,31 @@ socket.on('connect', () => {
 socket.on('error', (err) => {
     console.error('Erreur socket :', err);
 });
-⚙️ Explications du code
+```
 
-readHoldingRegisters(adresse, longueur) :
-adresse : adresse du registre à interroger (ex. 0 pour le premier registre).
-longueur : nombre de registres à lire (souvent 1 par capteur).
-📸 Bannière illustrative
+---
 
+## ⚙️ Explications du code
+
+- `readHoldingRegisters(adresse, longueur)` :
+  - `adresse` : adresse du registre à interroger (ex. 0 pour le premier registre).
+  - `longueur` : nombre de registres à lire (souvent 1 par capteur).
+
+---
+
+## 📸 Bannière illustrative
+
+```html
 <img src="https://yt3.googleusercontent.com/mmZDfacNeEWGrNtzFKLqwzbBDPRIVykeljyd93S1Ku39y-lcHBnxkLBNA0P648DlkTC50isg=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" width="100%">
-📌 À retenir
+```
 
-Vérifiez que le serveur Modbus est démarré.
-Le port utilisé doit correspondre à celui défini dans la configuration du serveur Node.js (souvent 502 ou 5020).
-Bien comprendre le format des trames Modbus (12 octets en envoi, 11 en retour).
-Utiliser différents outils de test permet de vérifier la robustesse de la communication (Node.js, modpoll, Hercules).
+---
+
+## 📌 À retenir
+
+- Vérifiez que le serveur Modbus est démarré.
+- Le port utilisé doit correspondre à celui défini dans la configuration du serveur Node.js (souvent 502 ou 5020).
+- Bien comprendre le format des trames Modbus (12 octets en envoi, 11 en retour).
+- Utiliser différents outils de test permet de vérifier la robustesse de la communication (Node.js, modpoll, Hercules).
+
+---
