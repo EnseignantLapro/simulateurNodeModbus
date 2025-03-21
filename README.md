@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Simulateur Modbus TCP</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
-        code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; }
-        pre { background: #f0f0f0; padding: 10px; border-radius: 5px; }
-        h2 { color: #2c3e50; }
-        .info-ip {
-            margin: 1em 0;
-            padding: 0.8em;
-            background: #e9f6ff;
-            border-left: 4px solid #3498db;
-        }
-        .hercules {
-            background: #fffaf0;
-            border-left: 4px solid #f39c12;
-            padding: 1em;
-            margin-top: 1em;
-        }
-        .hercules h3 {
-            margin-top: 0;
-        }
-    </style>
-</head>
-<body>
+
     <img src="https://yt3.googleusercontent.com/mmZDfacNeEWGrNtzFKLqwzbBDPRIVykeljyd93S1Ku39y-lcHBnxkLBNA0P648DlkTC50isg=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" width="100%">
     <h1>🔹 Lire les valeurs d'un capteur via Modbus TCP (Node.js)</h1>
 
@@ -159,13 +131,4 @@ socket.on('error', (err) => {
 
     
     
-    <script>
-      // Script pour afficher l'IP du serveur web dans la page
-      const serverIpSpans = document.querySelectorAll('.server-ip');
-      serverIpSpans.forEach(span => {
-          span.textContent = window.location.hostname;
-      });
-  </script>
-
-</body>
-</html>
+    
