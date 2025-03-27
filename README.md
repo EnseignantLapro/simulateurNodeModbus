@@ -13,6 +13,8 @@ root@vm:~# mpm2 restart server.js
 
 à exécuter dans le dossier `/opt/simulateurNodeModbus` de la VM.
 
+Attention le server log dans /var/www/html il faut donc les droits sur ce dossier
+
 ---
 
 ## ✅ Prérequis
@@ -29,7 +31,7 @@ npm install jsmodbus
 
 ---
 
-## 🔎 Test rapide avec Hercules.exe
+## 🔎 Test rapide de votre server avec un client Hercules.exe
 
 [Hercules Setup Utility](https://www.hw-group.com/software/hercules-setup-utility) est un utilitaire Windows gratuit permettant de tester des communications TCP, UDP et série.
 
@@ -46,7 +48,7 @@ Exemple de configuration disponible dans le fichier image `configHercule.png`.
 
 ---
 
-## 🔎 Test rapide avec modpoll
+## 🔎 Test rapide avec de votre server avec modpoll
 
 [modpoll](https://www.modbusdriver.com/modpoll.html) est un outil en ligne de commande pour systèmes Linux permettant de réaliser des requêtes Modbus TCP.
 

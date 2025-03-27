@@ -97,7 +97,9 @@ function updateSensorData() {
         const state = sensorState[sensor.name];
         const value = nextSensorValue(sensor, state);
 
-        holdingRegisters.writeUInt16BE(value, sensor.address * 2);
+         // ✅ On sécurise la valeur avant l’écriture
+        const safeValue = Math.max(0, Math.min(65535, value));
+        holdingRegisters.writeUInt16BE(safeValue, sensor.address * 2);
         message+=(`🔹 set capteur ${sensor.name} [Address ${sensor.address}] valeur ${value} ${sensor.unit}`);
     });
     logMessage(message);
