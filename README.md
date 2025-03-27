@@ -5,20 +5,20 @@
 
 ## 📜 Logs du Serveur Modbus (Node.js)
 
-⚠️ Si les logs du serveur ne s’actualisent pas toutes les 5 secondes, le serveur Modbus simulé n’est probablement pas démarré.  
+⚠️ Si les logs du serveur ne s’actualisent pas toutes les 5 secondes sur votre site apache (/var/www/html), le serveur Modbus simulé n’est probablement pas démarré.  
 Demander à l’administrateur ou au professeur d’exécuter la commande suivante :
+
+dans le dossier `/opt/simulateurNodeModbus` de la VM.
 
 ```bash
 root@vm:~# mpm2 restart server.js
 ```
 
-à exécuter dans le dossier `/opt/simulateurNodeModbus` de la VM.
-
 Attention le server log dans /var/www/html il faut donc les droits sur ce dossier
 
 ---
 
-## ✅ Prérequis
+## ✅ Prérequis pour les test
 
 - Disposer de Node.js installé sur votre environnement de développement.
 - Installer la bibliothèque `jsmodbus` via npm :
@@ -28,7 +28,7 @@ npm install jsmodbus
 ```
 
 - Visionner la vidéo suivante afin de comprendre la structure des trames Modbus TCP (positions et valeurs des octets) :  
-📺 [Le Protocole Modbus TCP - Comprendre ses trames (YouTube)](https://www.youtube.com/embed/uMKwotzBzz8)
+📺 [Le Protocole Modbus TCP - Comprendre ses trames (YouTube)](https://www.youtube.com/uMKwotzBzz8)
 
 ---
 
