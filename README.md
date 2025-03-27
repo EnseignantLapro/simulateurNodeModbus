@@ -1,5 +1,6 @@
 
 
+<img src="https://yt3.googleusercontent.com/mmZDfacNeEWGrNtzFKLqwzbBDPRIVykeljyd93S1Ku39y-lcHBnxkLBNA0P648DlkTC50isg=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" width="100%">
 # 🔹 Lire les valeurs d'un capteur via Modbus TCP (Node.js)
 
 ## 📜 Logs du Serveur Modbus (Node.js)
@@ -40,11 +41,11 @@ npm install jsmodbus
 1. Télécharger et exécuter hercules.exe sur un poste Windows connecté au même réseau que la VM simulant le serveur Modbus.
 2. Onglet TCP Client :
    - Adresse IP : celle de la VM.
-   - Port : 5020 (ou celui défini dans le simulateur).
+   - Port : 502 (ou celui défini dans le simulateur).
    - Cliquer sur Connect.
 3. Une fois la connexion établie, il est possible d’envoyer des trames Modbus manuellement.
 
-Exemple de configuration disponible dans le fichier image `configHercule.png`.
+Il faut activé les caractères Hexa pour les voirs et coché HEX pour les envoyer.
 
 ---
 
@@ -120,13 +121,7 @@ socket.on('error', (err) => {
   - `adresse` : adresse du registre à interroger (ex. 0 pour le premier registre).
   - `longueur` : nombre de registres à lire (souvent 1 par capteur).
 
----
 
-## 📸 Bannière illustrative
-
-```html
-<img src="https://yt3.googleusercontent.com/mmZDfacNeEWGrNtzFKLqwzbBDPRIVykeljyd93S1Ku39y-lcHBnxkLBNA0P648DlkTC50isg=w2276-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" width="100%">
-```
 
 ---
 
